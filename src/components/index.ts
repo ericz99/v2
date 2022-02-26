@@ -1,0 +1,7 @@
+export { default as Layout } from "./Layout"
+export { default as MiniBio } from "./MiniBio"
+export { default as Social } from "./Social"
+export { default as Project } from "./Project"
+export { default as Technology } from "./Technology"
+export { default as Footer } from "./Footer"
+export { default as Contact } from "./Contact"

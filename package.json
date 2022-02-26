@@ -1,0 +1,43 @@
+{
+  "name": "v2",
+  "private": true,
+  "description": "Second iteration of ericzhang.xyz website.",
+  "version": "0.1.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "gatsby": "^4.8.0",
+    "gatsby-plugin-typescript": "^4.8.1",
+    "hamburger-react": "^2.4.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
+    "react-loading-skeleton": "^3.0.3",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-helmet": "^6.1.5",
+    "@types/styled-components": "^5.1.23",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericz99/v2"
+  },
+  "bugs": {
+    "url": "https://github.com/ericz99/v2/issues"
+  }
+}
