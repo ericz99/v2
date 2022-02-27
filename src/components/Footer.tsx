@@ -11,6 +11,7 @@ const StyledHeader = styled.h2`
   font-size: 36px;
   font-weight: 900;
   opacity: 0.8;
+  color: ${props => props.theme.text1};
 `
 
 const StyledContent = styled.p`

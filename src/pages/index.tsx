@@ -8,6 +8,7 @@ import {
   Technology,
   Footer,
   Contact,
+  Experience,
 } from "../components"
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <Layout>
       <Social />
       <MiniBio />
+      <Experience />
       <Project />
       <Technology />
       <Contact />

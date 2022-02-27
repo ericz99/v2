@@ -6,17 +6,28 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Eric Zhang - Software Engineer`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Eric Zhang`,
+      summary: `who lives and works in Brooklyn Ny, building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    description: `Hello, I am a software engineer!`,
+    siteUrl: `https://ericzhang.xyz/`,
   },
   /* Your site config here */
-  plugins: [`gatsby-plugin-typescript`],
+  plugins: [
+    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `montserrat\:300,400,500`,
+          `source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
+          `Dela Gothic One\:300,400,500`,
+          `Quicksand\:300,400,500`,
+        ],
+        display: "swap",
+      },
+    },
+  ],
 }

@@ -16,9 +16,6 @@ export default function Seo({ description, lang, title }: SeoProps) {
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
           }
         }
       }
@@ -34,7 +31,6 @@ export default function Seo({ description, lang, title }: SeoProps) {
         lang,
       }}
       title={title ?? defaultTitle}
-      titleTemplate={`%s | ${defaultTitle}`}
       meta={[
         {
           name: `description`,

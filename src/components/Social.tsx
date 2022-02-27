@@ -15,6 +15,8 @@ const StyledLink = styled.a`
   cursor: pointer;
   font-size: 28px;
   margin-right: 15px;
+
+  color: ${props => props.theme.text1};
 `
 
 export default function Social() {

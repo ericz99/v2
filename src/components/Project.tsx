@@ -15,6 +15,7 @@ const StyledSection = styled.div`
 const StyledHeader = styled.h2`
   font-size: 32px;
   font-weight: 600;
+  color: ${props => props.theme.text1};
 
   @media ${breakpoint.mobileL} {
     font-size: 28px;
@@ -73,7 +74,7 @@ const ProjectItem = styled.li`
 
       &:hover {
         background: ${props => props.theme.text2};
-        color: #ffffff;
+        color: ${props => props.theme.bg};
         transition: all ease-in-out 0.2s;
       }
     }
