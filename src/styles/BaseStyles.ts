@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components"
+/* eslint-disable import/prefer-default-export */
+import { createGlobalStyle } from 'styled-components';
 
 export const BaseStyles = createGlobalStyle`
   html, body, #root {
@@ -97,4 +98,4 @@ export const BaseStyles = createGlobalStyle`
     ::-webkit-scrollbar-thumb {
         background: #FF0000;
     }
-`
+`;
