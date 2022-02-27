@@ -1,6 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
 
 export default function NavBar() {
-  return <div>NavBar</div>
+  return <div>NavBar</div>;
 }

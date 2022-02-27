@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
-import { breakpoint } from "../styles"
-import { jobs } from "../data"
+import { breakpoint } from '../styles';
+import { jobs } from '../data';
 
 const StyledSection = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
-`
+`;
 
 const StyledHeader = styled.h2`
   font-size: 32px;
@@ -22,14 +22,14 @@ const StyledHeader = styled.h2`
   @media ${breakpoint.mobileL} {
     font-size: 28px;
   }
-`
+`;
 
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   margin: 50px 0;
-`
+`;
 
 const StyledJobList = styled.div`
   list-style: none;
@@ -41,7 +41,7 @@ const StyledJobList = styled.div`
     overflow-x: scroll;
     width: 100%;
   }
-`
+`;
 
 const StyledJobNameList = styled.div`
   flex: 1;
@@ -65,7 +65,7 @@ const StyledJobNameList = styled.div`
       border-bottom: 3px solid ${props => props.theme.bg4};
     }
   }
-`
+`;
 
 const StyledJobDescription = styled.div`
   flex: 2;
@@ -106,7 +106,7 @@ const StyledJobDescription = styled.div`
         position: relative;
 
         &:before {
-          content: "▹";
+          content: '▹';
           position: absolute;
           left: 0px;
           color: var(--green);
@@ -135,10 +135,10 @@ const StyledJobDescription = styled.div`
       }
     }
   }
-`
+`;
 
 export default function Experience() {
-  const companies = jobs.map(job => job.company)
+  const companies = jobs.map(job => job.company);
 
   return (
     <StyledSection>
@@ -148,7 +148,7 @@ export default function Experience() {
         <StyledJobList>
           <StyledJobNameList>
             {companies.map((company, idx) => (
-              <button key={idx}>
+              <button type="button" key={idx}>
                 <span>{company}</span>
               </button>
             ))}
@@ -158,13 +158,8 @@ export default function Experience() {
             {jobs.map((job, idx) => (
               <div key={idx}>
                 <p>
-                  {job.title} -{" "}
-                  <a
-                    href={job.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Company Website"
-                  >
+                  {job.title} -{' '}
+                  <a href={job.url} target="_blank" rel="noreferrer" aria-label="Company Website">
                     @ {job.company}
                   </a>
                 </p>
@@ -181,5 +176,5 @@ export default function Experience() {
         </StyledJobList>
       </StyledContent>
     </StyledSection>
-  )
+  );
 }

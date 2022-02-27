@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import axios from "axios"
-import { AiFillStar, AiOutlineFork } from "react-icons/ai"
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+import { AiFillStar, AiOutlineFork } from 'react-icons/ai';
 
-import Skeleton from "./Skeleton"
-import { breakpoint } from "../styles"
+import Skeleton from './Skeleton';
+import { breakpoint } from '../styles';
 
 const StyledSection = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
-`
+`;
 
 const StyledHeader = styled.h2`
   font-size: 32px;
@@ -20,26 +20,26 @@ const StyledHeader = styled.h2`
   @media ${breakpoint.mobileL} {
     font-size: 28px;
   }
-`
+`;
 
 const StyledContent = styled.p`
   margin-top: 15px;
   font-size: 16px;
   font-weight: 500;
-  color: ${props => props.theme.text1 || "#000000"};
+  color: ${props => props.theme.text1 || '#000000'};
   line-height: 200%;
   opacity: 0.8;
 
   @media ${breakpoint.mobileL} {
     font-size: 14px;
   }
-`
+`;
 
 const ProjectList = styled.ul`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
-`
+`;
 
 const ProjectItem = styled.li`
   flex: 1;
@@ -85,19 +85,19 @@ const ProjectItem = styled.li`
       font-size: 14px;
     }
   }
-`
+`;
 
 const StyledTags = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 
 const StyledTag = styled.span`
   display: flex;
   align-items: center;
   margin-right: 15px;
-  color: ${props => props.theme.text1 || "#000000"};
+  color: ${props => props.theme.text1 || '#000000'};
 
   span {
     font-size: 16px;
@@ -109,56 +109,46 @@ const StyledTag = styled.span`
       font-size: 12px;
     }
   }
-`
+`;
 
-const filterKey: string[] = [
-  "api-builder",
-  "profiler",
-  "euphoria",
-  "captcha-harvester",
-  "covid19-web",
-  "realtime-twitter-stream",
-  "url-shorter",
-]
+const filterKey: string[] = ['api-builder', 'profiler', 'euphoria', 'captcha-harvester', 'covid19-web', 'realtime-twitter-stream', 'url-shorter'];
 
 export default function Project() {
-  const defaultArr = new Array(filterKey.length).fill(0)
-  const [projects, setProjects] = useState<any[]>([])
-  const [isLoading, setLoading] = useState(true)
+  const defaultArr = new Array(filterKey.length).fill(0);
+  const [projects, setProjects] = useState<any[]>([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       // # get projects
       const { data } = await axios({
-        url: "https://api.github.com/users/ericz99/repos?per_page=100",
-        method: "GET",
-      })
+        url: 'https://api.github.com/users/ericz99/repos?per_page=100',
+        method: 'GET'
+      });
 
       // # filter by key
-      const filtered = data.filter((d: any) => filterKey.includes(d.name))
+      const filtered = data.filter((d: any) => filterKey.includes(d.name));
       // # set to project repo
-      setProjects(filtered)
-    }
+      setProjects(filtered);
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
-        setLoading(false)
-      }, 2500)
+        setLoading(false);
+      }, 2500);
     }
-  }, [isLoading])
+  }, [isLoading]);
 
   return (
     <StyledSection>
       <StyledHeader>About Me</StyledHeader>
       <StyledContent>
-        Hello World! I'm current working as an Software Engineer for LogiCloud
-        Technologies - where we specialized in maintaining and building features
-        for our clients application. Below are some of my most recent work that
-        I've worked on. Thank you! 💖
+        Hello World! I&apos;m current working as an Software Engineer for LogiCloud Technologies - where we specialized in maintaining and building
+        features for our clients application. Below are some of my most recent work that I&apos;ve worked on. Thank you! 💖
       </StyledContent>
 
       {isLoading ? (
@@ -170,7 +160,7 @@ export default function Project() {
               <p>{project.name}</p>
               <StyledTags>
                 <StyledTag>
-                  <AiFillStar style={{ fontSize: 14, color: "#D29D2B" }} />
+                  <AiFillStar style={{ fontSize: 14, color: '#D29D2B' }} />
                   <span>{project.stargazers_count}</span>
                 </StyledTag>
 
@@ -179,12 +169,7 @@ export default function Project() {
                   <span>{project.stargazers_count}</span>
                 </StyledTag>
 
-                <a
-                  href={project.svn_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Project Item"
-                >
+                <a href={project.svn_url} target="_blank" rel="noreferrer" aria-label="Project Item">
                   View
                 </a>
               </StyledTags>
@@ -193,5 +178,5 @@ export default function Project() {
         </ProjectList>
       )}
     </StyledSection>
-  )
+  );
 }
