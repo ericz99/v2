@@ -147,7 +147,7 @@ export default function Project() {
     <StyledSection>
       <StyledHeader>About Me</StyledHeader>
       <StyledContent>
-        Hello World! I&apos;m current working as an Software Engineer for LogiCloud Technologies - where we specialized in maintaining and building
+        Hey everybody, I&apos;m current working as an Software Engineer for LogiCloud Technologies - where we specialized in maintaining and building
         features for our clients application. Below are some of my most recent work that I&apos;ve worked on. Thank you! 💖
       </StyledContent>
 
