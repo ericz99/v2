@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import styled, { ThemeProvider } from "styled-components"
+import React, { useState, useEffect } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-import Seo from "./Seo"
-import { theme, breakpoint, BaseStyles, NormalizeStyles } from "../styles"
+import Seo from './Seo';
+import { theme, breakpoint, BaseStyles, NormalizeStyles } from '../styles';
 
 const StyledContainer = styled.div`
   height: 100%;
@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   background: ${props => props.theme.bg};
   position: relative;
   transition: all ease-in-out 0.3s;
-`
+`;
 
 const StyledContent = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const StyledContent = styled.div`
   @media ${breakpoint.mobileL} {
     padding: 25px 25px;
   }
-`
+`;
 
 const ThemeSwitchStyled = styled.div`
   position: fixed;
@@ -40,35 +40,36 @@ const ThemeSwitchStyled = styled.div`
   span {
     font-size: 32px;
   }
-`
+`;
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [globalTheme, setTheme] = useState<string>(
-    localStorage.getItem("theme") || "light"
-  )
-  const isDarkTheme = globalTheme === "dark"
+  const [globalTheme, setTheme] = useState<string>('light');
+  const isDarkTheme = globalTheme === 'dark';
 
   const toggleTheme = () => {
-    const updatedTheme = isDarkTheme ? "light" : "dark"
-    setTheme(updatedTheme)
-    localStorage.setItem("theme", updatedTheme)
-  }
+    const updatedTheme = isDarkTheme ? 'light' : 'dark';
+    setTheme(updatedTheme);
+
+    if (typeof window !== undefined) {
+      localStorage.setItem('theme', updatedTheme);
+    }
+  };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme")
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    if (savedTheme && ["dark", "light"].includes(savedTheme)) {
-      setTheme(savedTheme)
-    } else if (prefersDark) {
-      setTheme("dark")
+    if (typeof window !== undefined) {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme && ['dark', 'light'].includes(savedTheme)) {
+        setTheme(savedTheme);
+      } else if (prefersDark) {
+        setTheme('dark');
+      }
     }
-  }, [])
+  }, []);
 
   return (
     <ThemeProvider theme={isDarkTheme ? theme.dark : theme.light}>
@@ -97,5 +98,5 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </StyledContainer>
     </ThemeProvider>
-  )
+  );
 }
